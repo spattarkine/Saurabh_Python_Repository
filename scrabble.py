@@ -24,7 +24,8 @@ def run_scrabble(rack):
             else:
                 break
         else:
-            valid_words.append([wordscore.score_word(word_low), word_low])
+            #valid_words.append([wordscore.score_word(word_low), word_low])
+            valid_words.append([wordscore.score_word(word_low), word_low.upper()])
             valid_words.sort(reverse = True)
 
     for entry in valid_words:
