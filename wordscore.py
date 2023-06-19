@@ -1,4 +1,4 @@
-"This function is define score for words" 
+"This function is define score for words"  
 def score_word(word_low):
     "This function is define score for words"
     scores = {"a": 1,

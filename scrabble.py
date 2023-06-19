@@ -1,6 +1,5 @@
-"Importing wordscore Module"
-
-from wordscore import *
+"Import Wordscore module"
+import wordscore
 
 def run_scrabble(rack):
     "Run Scrapable Function Definision"    
@@ -25,7 +24,7 @@ def run_scrabble(rack):
             else:
                 break
         else:
-            valid_words.append([score_word(word_low), word_low])
+            valid_words.append([wordscore.score_word(word_low), word_low])
             valid_words.sort(reverse = True)
 
     for entry in valid_words:
@@ -34,3 +33,4 @@ def run_scrabble(rack):
         print((score, word_low))
 
     print("Total number of words:", len(valid_words))
+    
