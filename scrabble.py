@@ -39,13 +39,7 @@ def run_scrabble(rack):
             else:
                 clean_rack = ''.join([i for i in rack_low if i.isalpha()])
                 valid_words.append([wordscore.score_word(clean_rack), word_low.upper()])
-        valid_words.sort(reverse = True)
-
-        for entry in valid_words:
-            score = entry[0]
-            word_low = entry[1]
-            print((score, word_low))
-        print(len(valid_words))
+                valid_words.sort(reverse = True) #Descending Order
+        return valid_words
     else:
         valid_rack = False
-    
