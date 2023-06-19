@@ -32,5 +32,4 @@ def run_scrabble(rack):
         word_low = entry[1]
         print((score, word_low))
 
-    print("Total number of words:", len(valid_words))
-    
+    print(data[0:6])
