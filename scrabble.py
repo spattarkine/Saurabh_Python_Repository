@@ -33,5 +33,4 @@ def run_scrabble(rack):
         print((score, word_low))
 
     print("Total number of words:", len(valid_words))
-
     

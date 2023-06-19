@@ -1,6 +1,6 @@
-"This function is define score for words"  
+"This function is define score for words."  
 def score_word(word_low):
-    "This function is define score for words"
+    "Word low parameter takes word from file in lower case."
     scores = {"a": 1,
               "c": 3, 
               "b": 3, 
@@ -31,4 +31,3 @@ def score_word(word_low):
     for letter in word_low:
         total = total + scores[letter]
     return total
-
