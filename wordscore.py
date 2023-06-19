@@ -31,3 +31,4 @@ def score_word(word_low):
     for letter in word_low:
         total = total + scores[letter]
     return total
+
