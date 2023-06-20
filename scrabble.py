@@ -5,12 +5,11 @@ def run_scrabble(rack):
     "Scrabble function business logic"
     rack_low = rack.lower()
     rack_letters = list(rack_low)
-    valid_words = ()
-    result_tuple = ()
+    valid_words = []
     result=[]
     valid_rack = True
     clean_rack = []
-    if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1 or rack_low.count('*','?') > 1:
+    if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1:
         #If program has more than one wildcard.
         valid_rack = False
         return False
@@ -45,13 +44,12 @@ def run_scrabble(rack):
                     break
             else:
                 clean_rack = ''.join([i for i in rack_low if i.isalpha()])
-                valid_words = valid_words + ([wordscore.score_word(clean_rack), word_low.upper()])
+                valid_words.append([wordscore.score_word(clean_rack), word_low.upper()])
                 valid_words.sort(reverse = True)
         for entry in valid_words:
             score = entry[0]
             word_low = entry[1]
-            result_tuple = result_tuple + ([word_low,score])
-        result = list(result_tuple)
+            result = result.append(word_low, score)
         return result
     else:
         valid_rack = False
