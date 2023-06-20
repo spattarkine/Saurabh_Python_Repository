@@ -45,12 +45,9 @@ def run_scrabble(rack):
             else:
                 valid_words.append([wordscore.score_word(word_low), word_low.upper()])
                 valid_words.sort(reverse = True)
-        for entry in valid_words:
-            score = entry[0]
-            word_low = entry[1]
+        for counter in valid_words:
+            score = counter[0]
+            word_low = counter[1]
             result_tuple = (score, word_low)
             result.append(result_tuple)
         return result
-    else:
-        valid_rack = False
-            
