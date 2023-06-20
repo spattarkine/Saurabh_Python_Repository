@@ -6,8 +6,8 @@ def run_scrabble(rack):
     rack_low = rack.lower()
     rack_letters = list(rack_low)
     valid_words = []
-    result=[]
-    result_tuple = ()
+    #result=[]
+    #result_tuple = ()
     valid_rack = True
     if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1:
         #If program has more than one wildcard.
@@ -45,9 +45,9 @@ def run_scrabble(rack):
             else:
                 valid_words.append([wordscore.score_word(word_low), word_low.upper()])
                 valid_words.sort(reverse = True)
-        for counter in valid_words:
-            score = counter[0]
-            word_low = counter[1]
-            result_tuple = ((score), (word_low))
-            result.append(result_tuple)
-        return result
+        #for counter in valid_words:
+        #    score = counter[0]
+        #    word_low = counter[1]
+        #    result_tuple = [score, word_low]
+        #    result.append(result_tuple)
+        return valid_words[::-1],len(valid_words)
