@@ -51,7 +51,7 @@ def run_scrabble(rack):
             score = entry[0]
             word_low = entry[1]
             result_tuple = (word_low, score)
-            result += list(result_tuple)
+            result.append(list(result_tuple))
         return result
     else:
         valid_rack = False
