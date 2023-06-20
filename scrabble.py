@@ -46,6 +46,11 @@ def run_scrabble(rack):
                 clean_rack = ''.join([i for i in rack_low if i.isalpha()])
                 valid_words.append([wordscore.score_word(clean_rack), word_low.upper()])
                 valid_words.sort(reverse = True)
-        return valid_words
+                
+        for entry in valid_words:
+            score = entry[1]
+            word_low = entry[0]
+            result = result.append([word_low, score])
+        return result
     else:
         valid_rack = False
