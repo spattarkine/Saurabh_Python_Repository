@@ -6,6 +6,7 @@ def run_scrabble(rack):
     rack_low = rack.lower()
     rack_letters = list(rack_low)
     valid_words = ()
+    result_tuple = ()
     result=[]
     valid_rack = True
     clean_rack = []
@@ -49,7 +50,8 @@ def run_scrabble(rack):
         for entry in valid_words:
             score = entry[0]
             word_low = entry[1]
-            result = ([word_low, score]) + result
+            result_tuple = (word_low, score)
+            result.append(result_tuple)
         return result
     else:
         valid_rack = False
