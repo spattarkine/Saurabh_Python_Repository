@@ -50,7 +50,7 @@ def run_scrabble(rack):
         for entry in valid_words:
             score = entry[0]
             word_low = entry[1]
-            result_tuple = (word_low, score)
+            result_tuple = result_tuple + (word_low, score)
             result.append(result_tuple)
         return result
     else:
