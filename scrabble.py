@@ -44,10 +44,11 @@ def run_scrabble(rack):
                     break
             else:
                 valid_words.append([wordscore.score_word(word_low), word_low.upper()])
-                valid_words.sort(reverse = True)
+                sorted_scores = sorted(valid_words, key=lambda x: (-x[0], x[1]), reverse=True)
+                #valid_words.sort(reverse = True)
         #for counter in valid_words:
         #    score = counter[0]
         #    word_low = counter[1]
         #    result_tuple = [score, word_low]
         #    result.append(result_tuple)
-        return valid_words[::-1],len(valid_words)
+        return sorted_scores[::-1],len(sorted_scores)
