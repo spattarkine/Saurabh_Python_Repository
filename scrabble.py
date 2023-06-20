@@ -48,6 +48,6 @@ def run_scrabble(rack):
         for counter in valid_words:
             score = counter[0]
             word_low = counter[1]
-            result_tuple = (score, word_low)
+            result_tuple = ((score), (word_low))
             result.append(result_tuple)
-        return result_tuple
+        return result
