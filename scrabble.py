@@ -6,7 +6,7 @@ def run_scrabble(rack):
     rack_low = rack.lower()
     rack_letters = list(rack_low)
     valid_words = []
-    result=((),())
+    result=([],())
     valid_rack = True
     clean_rack = []
     if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1:
@@ -47,8 +47,8 @@ def run_scrabble(rack):
                 valid_words.append([wordscore.score_word(clean_rack), word_low.upper()])
                 valid_words.sort(reverse = True)
         for entry in valid_words:
-            score = entry[0]
-            word_low = entry[1]
+            score = entry[1]
+            word_low = entry[0]
             result = result + (word_low, score)
         return result
     else:
