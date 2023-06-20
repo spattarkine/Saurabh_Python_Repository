@@ -7,6 +7,7 @@ def run_scrabble(rack):
     rack_letters = list(rack_low)
     valid_words = []
     result=[]
+    result_tuple = ()
     valid_rack = True
     clean_rack = []
     if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1:
@@ -49,7 +50,8 @@ def run_scrabble(rack):
         for entry in valid_words:
             score = entry[0]
             word_low = entry[1]
-            result = result.append(word_low, score)
+            result_tuple = result_tuple + (word_low,score)
+        result = list(result_tuple)
         return result
     else:
         valid_rack = False
