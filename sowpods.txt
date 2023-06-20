@@ -1,1 +1,2 @@
-
+run_scrabble("ZAEfiee")
+run_scrabble("?F")
