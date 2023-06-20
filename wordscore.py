@@ -1,4 +1,4 @@
-"This function is define score for words."  
+"This function is define score for words."   
 def score_word(word_low):
     "Word low parameter takes word from file in lower case."
     scores = {"a": 1,
