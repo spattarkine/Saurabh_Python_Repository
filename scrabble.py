@@ -2,11 +2,11 @@
 import wordscore
 
 def run_scrabble(rack):
-    '''Scrabble function business logic'''
+    "Scrabble function business logic"
     rack_low = rack.lower()
     rack_letters = list(rack_low)
     valid_words = []
-    result=[]
+    result=((),())
     valid_rack = True
     clean_rack = []
     if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1:
@@ -46,11 +46,10 @@ def run_scrabble(rack):
                 clean_rack = ''.join([i for i in rack_low if i.isalpha()])
                 valid_words.append([wordscore.score_word(clean_rack), word_low.upper()])
                 valid_words.sort(reverse = True)
-
         for entry in valid_words:
-            score = entry[1]
-            word_low = entry[0]
-            result = result.append([word_low, score])
+            score = entry[0]
+            word_low = entry[1]
+            result = result + (word_low, score)
         return result
     else:
         valid_rack = False
