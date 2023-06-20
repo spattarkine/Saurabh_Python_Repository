@@ -50,4 +50,4 @@ def run_scrabble(rack):
             word_low = counter[1]
             result_tuple = (score, word_low)
             result.append(result_tuple)
-        return result
+        return result_tuple
