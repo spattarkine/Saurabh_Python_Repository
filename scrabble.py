@@ -10,7 +10,7 @@ def run_scrabble(rack):
     result=[]
     valid_rack = True
     clean_rack = []
-    if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1:
+    if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1 or rack_low.count('*','?') > 1:
         #If program has more than one wildcard.
         valid_rack = False
         return False
@@ -51,7 +51,7 @@ def run_scrabble(rack):
             score = entry[0]
             word_low = entry[1]
             result_tuple = (word_low, score)
-            result.append(list(result_tuple))
+            result += list(result_tuple)
         return result
     else:
         valid_rack = False
