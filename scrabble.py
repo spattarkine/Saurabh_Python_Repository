@@ -6,14 +6,16 @@ def run_scrabble(rack):
     rack_low = rack.lower()
     rack_letters = list(rack_low)
     valid_words = []
-    result=()
+    result=((),())
     valid_rack = True
     clean_rack = []
     if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1:
+        #If program has more than one wildcard.
         valid_rack = False
         return ("You have entered more than 2 special characters")
 
     elif len(rack_low) > 7 or len(rack_low) < 2:
+        #If length of word if less than two or greater than seven.
         valid_rack = False
         return ("You have entered more than 7 characters or less than 2")
     elif all(x.isalpha() or x in ('?', '*') for x in rack_low):
