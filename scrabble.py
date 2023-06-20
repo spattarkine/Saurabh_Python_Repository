@@ -30,7 +30,7 @@ def run_scrabble(rack):
             data = [datum.strip('\n') for datum in raw_input]
         for word in data:
             word_low = word.lower()
-            temp_rack_letters = rack_letters.copy() # keep the original
+            temp_rack_letters = rack_letters.copy() # keep the original value
 
             for letter in word_low:
                 if letter in temp_rack_letters :
@@ -47,7 +47,7 @@ def run_scrabble(rack):
         for entry in valid_words:
             score = entry[0]
             word_low = entry[1]
-            result_tuple = (score, word_low)
+            result_tuple = ((score, word_low), len(valid_words))
             result.append(result_tuple)
         return result
     
