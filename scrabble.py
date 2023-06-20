@@ -9,31 +9,29 @@ def run_scrabble(rack):
     result=[]
     result_tuple = ()
     valid_rack = True
-    clean_rack = []
+    #clean_rack = []
     if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1:
         #If program has more than one wildcard.
         valid_rack = False
-        return False
-        #return ("You have entered more than 2 special characters")
+        return ("You have entered more than 2 special characters")
 
     elif len(rack_low) > 7 or len(rack_low) < 2:
         #If length of word if less than two or greater than seven.
         valid_rack = False
-        return False
-        #return ("You have entered more than 7 characters or less than 2")
+        return ("You have entered more than 7 characters or less than 2")
     elif all(x.isalpha() or x in ('?', '*') for x in rack_low):
         valid_rack = True
     else:
         valid_rack = False
-        return False
-        #return ('Please enter only alphabets and/or special characters * and ?')
+        return ('Please enter only alphabets and/or special characters * and ?')
     if valid_rack:
         with open("sowpods.txt","r", encoding="utf-8") as infile:
             raw_input = infile.readlines()
             data = [datum.strip('\n') for datum in raw_input]
         for word in data:
             word_low = word.lower()
-            temp_rack_letters = rack_letters.copy()
+            temp_rack_letters = rack_letters.copy() # keep the original
+
             for letter in word_low:
                 if letter in temp_rack_letters :
                     temp_rack_letters .remove(letter)
@@ -42,16 +40,14 @@ def run_scrabble(rack):
                 elif '?' in temp_rack_letters :
                     temp_rack_letters .remove('?')
                 else:
-                    break
-            else:
-                clean_rack = ''.join([i for i in rack_low if i.isalpha()])
-                valid_words.append([wordscore.score_word(clean_rack), word_low.upper()])
-                valid_words.sort(reverse = True)
+                    break # You want to exit the loop if letter dont match
+    else:
+        valid_words.append([wordscore.score_word(word_low), word_low])
+        valid_words.sort(reverse = True)
         for entry in valid_words:
             score = entry[0]
             word_low = entry[1]
             result_tuple = (score, word_low)
             result.append(result_tuple)
         return result
-    else:
-        valid_rack = False
+    
