@@ -5,7 +5,7 @@ def run_scrabble(rack):
     "Scrabble function business logic"
     rack_low = rack.lower()
     rack_letters = list(rack_low)
-    valid_words = []
+    valid_words = ()
     result=[]
     valid_rack = True
     clean_rack = []
@@ -44,7 +44,7 @@ def run_scrabble(rack):
                     break
             else:
                 clean_rack = ''.join([i for i in rack_low if i.isalpha()])
-                valid_words.append([wordscore.score_word(clean_rack), word_low.upper()])
+                valid_words = valid_words + ([wordscore.score_word(clean_rack), word_low.upper()])
                 valid_words.sort(reverse = True)
         for entry in valid_words:
             score = entry[0]
