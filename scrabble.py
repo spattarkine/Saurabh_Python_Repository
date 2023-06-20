@@ -49,7 +49,7 @@ def run_scrabble(rack):
         for entry in valid_words:
             score = entry[1]
             word_low = entry[0]
-            #result = result + (word_low, score)
-        return (result, (word_low,score))
+            result = result + (word_low, score)
+        return result
     else:
         valid_rack = False
