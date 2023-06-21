@@ -17,13 +17,14 @@ def run_scrabble(rack):
         #Check if length of word if less than two or greater than seven and return a string error message.
         valid_rack = False
         return ("You have entered more than 7 characters or less than 2")
-    elif all(x.isalpha() or x in ('?', '*') for x in rack_low):
-        #Check if only one of the wildcard is used ? or * and return true for further processing. 
-        valid_rack = True
-    else:
-        #All other categories to return generic error and ask user to enter allowed values only.
+    elif all(x.isalpha() == False or x not in ('?', '*') for x in rack_low):
+        #Check if only one of the wildcard is used ? or * and return error and ask user to enter allowed values only. 
         valid_rack = False
         return ('Please enter only alphabets and/or special characters * and ?')
+    else:
+        #All validations went well.
+        valid_rack = True
+        
     if valid_rack:
         #If all validations are passed program will execute further.
         #Read file sowpods.txt and check each word in lower case in a loop. This will act like a base or a dictionary.
