@@ -6,8 +6,10 @@ def run_scrabble(rack):
     rack_low = rack.lower()
     rack_letters = list(rack_low)
     valid_words = []
+    #result=[]
+    #result_tuple = ()
     valid_rack = True
-    if rack_low.count('?') > 1 or  rack_low.count('*') > 1:
+    if rack_low.count('?') >1  or rack_low.count('*') >1 :
         #If program has more than one wildcard.
         valid_rack = False
         return ("You have entered more than 2 special characters")
@@ -41,3 +43,4 @@ def run_scrabble(rack):
                 valid_words.append((wordscore.score_word(word_low,rack_letters), word_low.upper()))
                 sorted_scores = sorted(valid_words, key=lambda x: (-x[0], x[1]), reverse=True)
         return sorted_scores[::-1],len(sorted_scores)
+    
