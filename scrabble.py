@@ -38,11 +38,11 @@ def run_scrabble(rack):
             temp_rack_letters = rack_letters.copy() # Keeping original copy intact.
             for letter in word_low:
                 #For each letter in word remove letter once encountered.
-                if letter in temp_rack_letters :
+                if letter in temp_rack_letters:
                     temp_rack_letters .remove(letter)
-                elif '*' in temp_rack_letters :
+                elif '*' in temp_rack_letters:
                     temp_rack_letters .remove('*')
-                elif '?' in temp_rack_letters :
+                elif '?' in temp_rack_letters:
                     temp_rack_letters .remove('?')
                 else:
                     break 
