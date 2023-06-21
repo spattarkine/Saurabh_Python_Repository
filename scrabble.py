@@ -6,12 +6,6 @@ def run_scrabble(rack):
     rack_low = rack.lower()
     rack_letters = list(rack_low)
     valid_words = []
-<<<<<<< HEAD
-    result=([],())
-=======
-    #result=[]
-    #result_tuple = ()
->>>>>>> d370b5f94c85ec3fcf8d0fe63af31667ba3692d8
     valid_rack = True
     if rack_low.count('?') >1  or rack_low.count('*') >1 :
         #If program has more than one wildcard.
