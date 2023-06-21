@@ -1,5 +1,5 @@
 '''This function is define score for words.'''   
-def score_word(word_low,rack_letters):
+def score_word(word_low):
     "Word low parameter takes word from file in lower case."
     scores = {"a": 1,
               "c": 3, 
@@ -29,7 +29,5 @@ def score_word(word_low,rack_letters):
               "z": 10}
     total = 0
     for letter in word_low:
-        if letter in rack_letters:
-            total = total + scores[letter]
-            rack_letters.remove(letter)
+           total = total + scores[letter]
     return total
