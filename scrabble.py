@@ -17,7 +17,7 @@ def run_scrabble(rack):
         #Check if length of word if less than two or greater than seven and return a string error message.
         valid_rack = False
         return ("You have entered more than 7 characters or less than 2")
-    elif all(x.isalpha() == False or x not in ('?', '*') for x in rack_low):
+    elif all(x.isalpha() == False and x not in ('?', '*') for x in rack_low):
         #Check if only one of the wildcard is used ? or * and return error and ask user to enter allowed values only. 
         valid_rack = False
         return ('Please enter only alphabets and/or special characters * and ?')
