@@ -42,5 +42,5 @@ def run_scrabble(rack):
                 clean_rack = ''.join([i for i in rack_low if i.isalpha()])
                 # removes the special characters from the rack 
                 valid_words.append((wordscore.score_word(clean_rack), word_low.upper()))
-                sorted_scores = sorted(valid_words, key=lambda x: (-x[0], x[1]), reverse=True)
-        return sorted_scores[::-1],len(sorted_scores)
+                sorted_scores = sorted(valid_words, key=lambda x: (x[0], x[1]), reverse=True)
+        return sorted_scorest,len(sorted_scores)
