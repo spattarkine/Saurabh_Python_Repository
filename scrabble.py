@@ -32,9 +32,11 @@ def run_scrabble(rack):
             raw_input = infile.readlines()
             data = [datum.strip('\n') for datum in raw_input]
         for word in data:
+            #For each word in lower case from file below logic should check the rack.
             word_low = word.lower()
             temp_rack_letters = rack_letters.copy()
             for letter in word_low:
+                #For each letter in word remove letter once encountered.
                 if letter in temp_rack_letters :
                     temp_rack_letters .remove(letter)
                 elif '*' in temp_rack_letters :
@@ -44,8 +46,8 @@ def run_scrabble(rack):
                 else:
                     break 
             else:
-                clean_rack = ''.join([i for i in temp_rack_letters if i.isalpha()])
-                # removes the special characters from the rack 
-                valid_words.append((wordscore.score_word(clean_rack), word_low.upper()))
-                sorted_scores = sorted(valid_words, key=lambda x: (-x[0], x[1]), reverse=True)
-        return sorted_scores,len(sorted_scores)
+                
+                clean_rack = ''.join([i for i in temp_rack_letters if i.isalpha()]) # removes the extra special characters (if any) and we have a clean rack now.
+                valid_words.append((wordscore.score_word(clean_rack), word_low.upper())) #Clean rack is passed to calculate wors score.
+                sorted_scores = sorted(valid_words, key=lambda x: (-x[0], x[1]), reverse=True)#Sorting logic plus conversion to tuple.
+        return sorted_scores,len(sorted_scores) #Return final result and its length
