@@ -9,20 +9,23 @@ def run_scrabble(rack):
     #result=[]
     #result_tuple = ()
     valid_rack = True
-    if rack_low.count('?') >1  or rack_low.count('*') >1 :
+    if rack_low.count('?') > 1 or  rack_low.count('*') > 1:
         #If program has more than one wildcard.
         valid_rack = False
-        return ("You have entered more than 2 special characters")
+        return False
+        #return ("You have entered more than 2 special characters")
 
     elif len(rack_low) > 7 or len(rack_low) < 2:
         #If length of word if less than two or greater than seven.
         valid_rack = False
-        return ("You have entered more than 7 characters or less than 2")
+        return False
+        #return ("You have entered more than 7 characters or less than 2")
     elif all(x.isalpha() or x in ('?', '*') for x in rack_low):
         valid_rack = True
     else:
         valid_rack = False
-        return ('Please enter only alphabets and/or special characters * and ?')
+        return False
+        #return ('Please enter only alphabets and/or special characters * and ?')
     if valid_rack:
         with open("sowpods.txt","r", encoding="utf-8") as infile:
             raw_input = infile.readlines()
@@ -40,12 +43,6 @@ def run_scrabble(rack):
                 else:
                     break
             else:
-                valid_words.append((wordscore.score_word(word_low), word_low.upper()))
+                valid_words.append([wordscore.score_word(word_low,rack_letters), word_low.upper()])
                 sorted_scores = sorted(valid_words, key=lambda x: (-x[0], x[1]), reverse=True)
-                #valid_words.sort(reverse = True)
-        #for counter in valid_words:
-        #    score = counter[0]
-        #    word_low = counter[1]
-        #    result_tuple = [score, word_low]
-        #    result.append(result_tuple)
         return sorted_scores[::-1],len(sorted_scores)
