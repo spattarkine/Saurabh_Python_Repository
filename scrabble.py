@@ -37,7 +37,7 @@ def run_scrabble(rack):
                 elif '?' in temp_rack_letters :
                     temp_rack_letters .remove('?')
                 else:
-                    break
+                    break 
             else:
                 clean_rack = ''.join([i for i in rack_low if i.isalpha()])
                 # removes the special characters from the rack 
