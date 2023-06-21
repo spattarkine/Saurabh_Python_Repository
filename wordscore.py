@@ -28,7 +28,6 @@ def score_word(word_low,rack):
               "x": 8, 
               "z": 10}
     total = 0
-    rack = list(rack.lower())
     for letter in word_low:
         if letter in rack:
             total = total + scores[letter]
