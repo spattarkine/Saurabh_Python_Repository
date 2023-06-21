@@ -5,6 +5,7 @@ def run_scrabble(rack):
     "Scrabble function business logic"
     rack_low = rack.lower()
     rack_letters = list(rack_low)
+    clean_rack = []
     valid_words = []
     valid_rack = True
     if rack_low.count('?') >1  or rack_low.count('*') >1:
@@ -38,6 +39,8 @@ def run_scrabble(rack):
                 else:
                     break
             else:
-                valid_words.append((wordscore.score_word(word_low), word_low.upper()))
+                clean_rack = ''.join([i for i in rack_low if i.isalpha()])
+                # removes the special characters from the rack 
+                valid_words.append((wordscore.score_word(clean_rack), word_low.upper()))
                 sorted_scores = sorted(valid_words, key=lambda x: (-x[0], x[1]), reverse=True)
         return sorted_scores[::-1],len(sorted_scores)
