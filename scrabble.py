@@ -26,7 +26,7 @@ def run_scrabble(rack):
         return ('Please enter only alphabets and/or special characters * and ?')
     if valid_rack:
         #If all validations are passed program will execute further.
-        #Read file sowpods.txt and check each word in lower case in a loop.
+        #Read file sowpods.txt and check each word in lower case in a loop. This will act like a base or a dictionary.
         #Remove duplicate word for temp_rack_letters once it has occurred to avoid duplication.
         with open("sowpods.txt","r", encoding="utf-8") as infile:
             raw_input = infile.readlines()
@@ -34,7 +34,7 @@ def run_scrabble(rack):
         for word in data:
             #For each word in lower case from file below logic should check the rack.
             word_low = word.lower()
-            temp_rack_letters = rack_letters.copy()
+            temp_rack_letters = rack_letters.copy() # Keeping original copy intact.
             for letter in word_low:
                 #For each letter in word remove letter once encountered.
                 if letter in temp_rack_letters :
