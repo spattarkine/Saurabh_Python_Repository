@@ -7,6 +7,7 @@ def run_scrabble(rack):
     rack_letters = list(rack_low)
     clean_rack = []
     valid_words = []
+    sorted_scores = [] 
     valid_rack = True
     if rack_low.count('?') >1  or rack_low.count('*') >1:
         #Check if program has more than one wildcard and return a string error message.
