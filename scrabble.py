@@ -1,5 +1,5 @@
 '''Importing wordscore module to compute the score for the given scrabble'''
-import wordscore
+import wordscore 
 
 def run_scrabble(rack):
     "Scrabble function business logic"
