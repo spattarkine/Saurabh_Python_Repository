@@ -9,7 +9,7 @@ def run_scrabble(rack):
     #result=[]
     #result_tuple = ()
     valid_rack = True
-    if (rack_low.count('?') > 1 or  rack_low.count('*')) > 1:
+    if (rack_low.count('?')  +  rack_low.count('*')) > 2:
         #If program has more than one wildcard.
         valid_rack = False
         return False
