@@ -26,7 +26,9 @@ def score_word(word_low):
               "v": 4, 
               "y": 4,
               "x": 8, 
-              "z": 10}
+              "z": 10,
+              "?": 0, 
+              "*": 0}
     total = 0
     for letter in word_low:
            total = total + scores[letter]
