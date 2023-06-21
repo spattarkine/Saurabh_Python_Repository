@@ -47,7 +47,7 @@ def run_scrabble(rack):
                     break 
             else:
                 
-                clean_rack = ''.join([i for i in temp_rack_letters if i.isalpha()]) # removes the extra special characters (if any) and we have a clean rack now.
+                clean_rack = ''.join([i for i in rack_letters if i.isalpha()]) # removes the extra special characters (if any) and we have a clean rack now.
                 valid_words.append((wordscore.score_word(clean_rack), word_low.upper())) #Clean rack is passed to calculate wors score.
                 sorted_scores = sorted(valid_words, key=lambda x: (-x[0], x[1]), reverse=True)#Sorting logic plus conversion to tuple.
         return sorted_scores,len(sorted_scores) #Return final result and its length
