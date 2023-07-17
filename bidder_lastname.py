@@ -131,7 +131,7 @@ class Bidder:
              # use a static value
             self.next_bid[self.current_round_user_id] = min(self.user_clearing_prices[self.current_round_user_id][-1]- (self.user_clearing_prices[self.current_round_user_id][-1] * self.large_adder),self.high_bid_max,)
 
-# determine the phase based on the number of users who've been explored
+            # determine the phase based on the number of users who've been explored
         if len(self.user_wins.keys()) / self.num_users >= self.exploration_users or len(self.user_wins.keys()) == self.num_users:
             self.phase = 'exploit'
             
