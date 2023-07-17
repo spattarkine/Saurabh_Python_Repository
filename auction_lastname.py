@@ -1,6 +1,6 @@
 from random import randint
 from numpy import random
-
+ 
 class User:
     """
     Represents a user that will click an ad based on a secret probability"""
@@ -11,17 +11,11 @@ class User:
 
     def get_probability(self):
         """ Returns the secret probability.
-        Args:
-        Returns:
-        float: User's probability of clicking an ad
         """
         return self.__probability
 
     def show_ad(self):
         """ Displays an ad to a user. The user clicks the ad based on their secret probability.
-        Args:
-        Returns:
-        bool: Indicator if the user clicked the ad or not
         """
 
         # draw a random number to simulate whether the user clicked
@@ -37,23 +31,8 @@ class User:
 class Auction:
     """
     Represents an auction containing 1 or more rounds.
-    ...
-    Attributes
-    ----------
-    users : list[User]
-    list of users who are participants in the auction
-    bidders : list[Bidder]
-    list of bidders who bid on the right to display an ad to a user
-    balances : dict[Bidder->float]
-    list of account balances for all bidders. initialized to a list 0s of size len(bidders)
-    Methods
-    -------
-    execute_round():
-    A method to simulate a single round of an auction in which bidders
-    bid on the right to show an ad to a user and are rewarded when
-    the user clicks the ad
+   
     """
-
     def _init_(self, users, bidders):
         """ Initializer for an Auction
         Args:
@@ -68,11 +47,8 @@ class Auction:
         self.balances = {bidder: 0 for bidder in bidders}
 
     def execute_round(self):
-        """ A method to simulate a single round of an auction in which
-        bidders bid on the right to show an ad to a user and are rewarded
-        when the user clicks the ad. Notifies bidders of round results via notify()
-        Args:
-        Returns:
+        """ A method to simulate a single round of an auction and notifies bidders of round results via notify()
+        
         """
 
         # select a random user for the round

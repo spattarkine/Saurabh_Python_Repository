@@ -1,22 +1,11 @@
 class Bidder:
     """
     Represents an bidder in the auction
-    ...
-    Attributes
-    ----------
-    num_users : int
-    the number of users participating in the auction
-    num_rounds : list[Bidder]
-    the number of auction rounds
-    Methods
-    -------"""
+    """
 
     def _init_(self, num_users, num_rounds):
         """ Initializer for a bidder
-        Args:
-        num_users (int): The number of users participating in the auction
-        num_round (int): The number of auction rounds
-        Returns:
+
         """
 
         self.num_users = num_users
@@ -59,10 +48,7 @@ class Bidder:
 
     def bid(self, user_id):
         """ Place a bid for the right to show an ad to a specific user
-        Args:
-        user_id (int): The user id that is being bid on
-        Returns:
-        float: the value of the bid > 0
+ 
         """
 
         self.bidding_round += 1
@@ -80,18 +66,11 @@ class Bidder:
 
     def notify(self, auction_winner, price, clicked):
         """ Notify the bidder of auction results
-        Args:
-        auction_winner (bool): Bool indicating if the bidder won the round
-        price (float): Wining bid price (the second highest bid amount)
-        clicked (bool): If the bidder won the round, Boolean value of
-        whether the user clicked the ad. If the user did not win the
-        round, returns None
-        Returns:
+
         """
 
         # dynamically adjust the exploration bid based on the last bid price
-        # self.exploration_price = max(self.exploration_price, min(price +
-        # (price * self.small_adder), self.high_bid_max))
+        self.exploration_price = max(self.exploration_price, min(price + (price * self.small_adder), self.high_bid_max))
 
         # update the list of clearing prices for this user
         self.user_clearing_prices[self.current_round_user_id].append(price)
