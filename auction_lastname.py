@@ -35,11 +35,7 @@ class Auction:
     """
     def _init_(self, users, bidders):
         """ Initializer for an Auction
-        Args:
-        num_users (list[User]): The list of Users participating in the auction
-
-        num_round (list[Bidder]): The list of Bidders participating in the auction
-        Returns:
+      
         """
         self.users = users
         self.bidders = bidders
