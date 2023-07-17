@@ -1,39 +1,28 @@
+from random import randint
 from numpy import random
 
 class User:
-"""
-Represents a user that will click an ad based on a secret probability
-...
-Attributes
-----------
-__probability : float
-private attribute representing the probability that the user will click an ad
-Methods
--------
-show_ad():
-A method to simulate showing an ad to a user. A boolean is return
-based on the user's secret probability of clicking an ad
-"""
-
-    def _init_(self):
-    """ Initializer for a user
     """
+    Represents a user that will click an ad based on a secret probability"""
+    def _init_(self):
+        """ Initializer for a user
+        """
         self.__probability = random.uniform(0, 1)
 
     def get_probability(self):
-    """ Returns the secret probability.
-    Args:
-    Returns:
-    float: User's probability of clicking an ad
-    """
-    return self.__probability
+        """ Returns the secret probability.
+        Args:
+        Returns:
+        float: User's probability of clicking an ad
+        """
+        return self.__probability
 
     def show_ad(self):
-    """ Displays an ad to a user. The user clicks the ad based on their secret probability.
-    Args:
-    Returns:
-    bool: Indicator if the user clicked the ad or not
-    """
+        """ Displays an ad to a user. The user clicks the ad based on their secret probability.
+        Args:
+        Returns:
+        bool: Indicator if the user clicked the ad or not
+        """
 
         # draw a random number to simulate whether the user clicked
         click_threshold = random.uniform(0, 1)
@@ -46,47 +35,45 @@ based on the user's secret probability of clicking an ad
 
 
 class Auction:
-"""
-Represents an auction containing 1 or more rounds.
-...
-Attributes
-----------
-users : list[User]
-list of users who are participants in the auction
-bidders : list[Bidder]
-list of bidders who bid on the right to display an ad to a user
-balances : dict[Bidder->float]
-list of account balances for all bidders. initialized to a list 0s of size len(bidders)
-Methods
--------
-execute_round():
-A method to simulate a single round of an auction in which bidders
-bid on the right to show an ad to a user and are rewarded when
-the user clicks the ad
-"""
-
-    def _init_(self, users, bidders):
-    """ Initializer for an Auction
-    Args:
-    num_users (list[User]): The list of Users participating in the auction
-
-    num_round (list[Bidder]): The list of Bidders participating in the auction
-    Returns:
+    """
+    Represents an auction containing 1 or more rounds.
+    ...
+    Attributes
+    ----------
+    users : list[User]
+    list of users who are participants in the auction
+    bidders : list[Bidder]
+    list of bidders who bid on the right to display an ad to a user
+    balances : dict[Bidder->float]
+    list of account balances for all bidders. initialized to a list 0s of size len(bidders)
+    Methods
+    -------
+    execute_round():
+    A method to simulate a single round of an auction in which bidders
+    bid on the right to show an ad to a user and are rewarded when
+    the user clicks the ad
     """
 
+    def _init_(self, users, bidders):
+        """ Initializer for an Auction
+        Args:
+        num_users (list[User]): The list of Users participating in the auction
+
+        num_round (list[Bidder]): The list of Bidders participating in the auction
+        Returns:
+        """
         self.users = users
         self.bidders = bidders
-        
         # initialize all balances to 0
         self.balances = {bidder: 0 for bidder in bidders}
 
     def execute_round(self):
-    """ A method to simulate a single round of an auction in which
-    bidders bid on the right to show an ad to a user and are rewarded
-    when the user clicks the ad. Notifies bidders of round results via notify()
-    Args:
-    Returns:
-    """
+        """ A method to simulate a single round of an auction in which
+        bidders bid on the right to show an ad to a user and are rewarded
+        when the user clicks the ad. Notifies bidders of round results via notify()
+        Args:
+        Returns:
+        """
 
         # select a random user for the round
         random_user = randint(0, len(self.users))
@@ -99,7 +86,7 @@ the user clicks the ad
         # select the winning bidder and winning price (second highest bid)
         highest_bid = 0
         winning_price = 0
-        
+
         for bidder, bid_value in bids.items():
         # evaluate the bid to determine if it is the highest
         # the highest bidder wins the round
@@ -133,5 +120,4 @@ the user clicks the ad
             self.balances[bidder] += 1
         else:
             # send notification to the losing bidders
-            bidder.notify(False, winning_price, None)        
-            
+            bidder.notify(False, winning_price, None)
